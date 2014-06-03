@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.version       = Porticor::VERSION
   spec.authors       = ["Brian McManus"]
   spec.email         = ["brian@checkmate.io"]
-  spec.summary       = %q{TODO: API wrapper for Porticor cloud security.}
+  spec.summary       = %q{API wrapper for Porticor cloud security.}
   spec.homepage      = "https://github.com/CheckMateIO/porticor-ruby"
   spec.license       = "MIT"
 
