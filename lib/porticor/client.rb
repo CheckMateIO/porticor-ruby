@@ -1,6 +1,7 @@
 require 'faraday_middleware'
 
 module Porticor
+  class InvalidOptions < StandardError; end
   class Error < StandardError; end
   class DuplicateItemError < Error; end
 
@@ -9,7 +10,9 @@ module Porticor
 
     def initialize(options = {})
       merged_options = ::Porticor.options.merge(options)
-
+      unless Configuration::VALID_OPTIONS.all?{ |option| merged_options[option] }
+        raise InvalidOptions.new("You must specify your Porticor api_url, api_key, and api_secret.")
+      end
       Configuration::VALID_OPTIONS.each do |key|
         public_send("#{key}=", merged_options[key])
       end
