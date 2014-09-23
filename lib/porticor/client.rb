@@ -1,4 +1,5 @@
 require 'faraday_middleware'
+require 'securerandom'
 
 module Porticor
   class InvalidOptions < StandardError; end
